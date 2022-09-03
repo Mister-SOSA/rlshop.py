@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 
 
-def main():
+def get_shop_items():
     URL = "https://rocket-league.com/items/shop"
     page = requests.get(URL)
     soup = BeautifulSoup(page.content, "html.parser")
@@ -56,4 +56,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    get_shop_items()
