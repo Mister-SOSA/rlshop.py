@@ -17,11 +17,15 @@ def get_shop_items():
         shop_item = {}
 
         item_name = item.find_all("h1", {"class": "rlg-item-shop__name"})
+        
         item_color = item.find_all("div", {"class": "rlg-item-shop__paint"})
+        
         item_type = item.find_all(
             "div", {"class": "rlg-item-shop__item-category"})
+        
         item_image_url = 'https://rocket-league.com' + \
             item.find_all("img")[0]['src']
+        
         item_price = item.find_all(
             "div", {"class": "rlg-item-shop__item-credits"})
 
@@ -41,7 +45,7 @@ def get_shop_items():
             shop_item['image_url'] = "No Image Found"
 
         try:
-            shop_item['type'] = item_type[0].strip()
+            shop_item['type'] = item_type[0].text.strip()
         except:
             shop_item['type'] = "Error"
 
