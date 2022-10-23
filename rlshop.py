@@ -9,7 +9,7 @@ def get_shop_items():
     page = requests.get(URL)
     soup = BeautifulSoup(page.content, "html.parser")
 
-    item_containers = soup.find_all("div", {"class": "rlg-item-shop__item"})
+    item_containers = soup.find_all("a", {"class": "rlg-item-shop__item"})
 
     shop_items = []
 
